@@ -104,7 +104,6 @@ const products = [
   }
 ]
 
-// Referencia al contenedor de productos
 const productList = document.getElementById('product-list')
 
 // Generación dinámica de los productos
@@ -112,7 +111,6 @@ products.forEach((product) => {
   const productCard = document.createElement('div')
   productCard.classList.add('product-card')
 
-  // Crear la tarjeta de producto con imagen y datos
   const imgElement = document.createElement('img')
   imgElement.src = product.image
   imgElement.alt = product.name
@@ -135,24 +133,27 @@ products.forEach((product) => {
   reviewsElement.classList.add('reviews')
   reviewsElement.textContent = `${product.reviews} Reseñas`
 
-  // Agregar los elementos dentro de la tarjeta
+  // Crear el contenedor de estrellas (flores)
+  const starsContainer = document.createElement('div')
+  starsContainer.classList.add('stars-container')
+
+  for (let i = 0; i < product.stars; i++) {
+    const flowerIcon = document.createElement('img')
+    flowerIcon.src =
+      'https://www.transparenttextures.com/patterns/flower-dots.png'
+    flowerIcon.alt = 'estrella'
+    flowerIcon.classList.add('star-icon')
+    starsContainer.appendChild(flowerIcon)
+  }
+
   infoDiv.appendChild(h3Element)
   infoDiv.appendChild(priceElement)
   infoDiv.appendChild(sellerElement)
   infoDiv.appendChild(reviewsElement)
+  infoDiv.appendChild(starsContainer)
 
   productCard.appendChild(imgElement)
   productCard.appendChild(infoDiv)
 
-  // Agregar la tarjeta al contenedor de productos
   productList.appendChild(productCard)
-})
-
-// Detectar el evento de scroll
-window.addEventListener('scroll', function () {
-  if (window.scrollY > 100) {
-    document.body.classList.add('scroll-changed')
-  } else {
-    document.body.classList.remove('scroll-changed')
-  }
 })

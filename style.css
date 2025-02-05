@@ -14,83 +14,106 @@ body {
   background-size: 200px;
 }
 
-/* Contenedor principal */
-.page-container {
+/* Estilos del logo */
+.logo {
   display: flex;
-  justify-content: space-between;
-  width: 90%;
-  max-width: 1200px;
-  position: relative;
+  align-items: center;
 }
 
-/* Contenedor de Filtros alineado a la izquierda */
-.filters-container {
-  width: 220px;
-  position: absolute;
-  left: 0;
-  top: 100px;
-  background-color: rgba(255, 255, 255, 0.9);
-  padding: 15px;
-  border-radius: 10px;
+.logo img {
+  height: 50px;
+  margin-right: 10px;
+}
+
+.logo h2 {
+  font-size: 1.5em;
+  color: #6c4f30;
+}
+
+/* Estilos del header */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+  background-color: #fff;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Título de los filtros */
-.filters-container h2 {
-  font-size: 1.2em;
-  color: #6c4f30;
-  margin-bottom: 10px;
-  text-align: center;
+nav {
+  flex-grow: 1;
+  text-align: right;
 }
 
-/* Estilos del select de filtros */
-.filters-container select {
-  width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #fff;
-  font-size: 1em;
-}
-
-/* Contenedor del encabezado */
-.header-container {
-  display: flex;
-  justify-content: flex-end; /* Categorías a la derecha */
-  align-items: center;
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-/* Contenedor de las categorías alineadas a la derecha */
-.categories {
+nav .menu {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
   display: flex;
   justify-content: flex-end;
-  gap: 15px;
-  width: 100%;
+  gap: 20px;
 }
 
-/* Estilos de los enlaces de categoría */
-.categories a {
-  font-size: 1em;
-  color: #6c4f30;
+nav .menu a {
   text-decoration: none;
+  color: #333;
+  font-size: 1.1em;
   transition: color 0.3s ease;
 }
 
-.categories a:hover {
+nav .menu a:hover {
   color: #2d87f0;
 }
 
-/* Contenedor de productos */
+/* Buscador colocado debajo del header pero alineado a la izquierda */
+.search-container {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  padding: 10px 0;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: relative;
+  top: 0; /* Asegurarse de que esté justo debajo del header */
+}
+
+.search-container input {
+  padding: 10px;
+  font-size: 1em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 250px;
+}
+
+.search-container button {
+  padding: 10px;
+  font-size: 1em;
+  background-color: #808080;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.search-container button:hover {
+  background-color: #666;
+}
+
+/* Estilos para las tarjetas de producto */
 #product-list {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(250px, 1fr)
+  ); /* Varias columnas por defecto */
   gap: 20px;
   padding: 20px;
   width: 90%;
   max-width: 1200px;
   margin: 0 auto;
+  justify-content: center;
 }
 
 /* Estilo para cada tarjeta de producto */
@@ -166,5 +189,30 @@ body {
   .categories {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  /* Buscador en pantallas pequeñas */
+  .search-container {
+    padding: 10px;
+  }
+
+  .search-container input {
+    width: 200px;
+  }
+
+  .search-container button {
+    width: 150px;
+  }
+
+  /* Ajuste para las tarjetas en pantallas pequeñas */
+  #product-list {
+    grid-template-columns: repeat(
+      2,
+      1fr
+    ); /* 2 columnas en pantallas pequeñas */
+  }
+
+  .product-card {
+    height: auto; /* Ajusta la altura de las tarjetas para que se adapten mejor */
   }
 }

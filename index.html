@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="author" content="MARA" />
-    <meta name="theme-color" content="#GREY" />
+    <meta name="theme-color" content="#808080" />
+    <!-- Cambio a un color gris válido -->
     <meta name="description" content="Web para amantes de la lectura" />
     <meta name="robots" content="index,follow" />
-    <meta name="google" content="notranslater" />
+    <meta name="google" content="notranslate" />
     <title>Tienda de Libros</title>
     <link
       rel="shortcut icon"
@@ -23,31 +24,35 @@
   </head>
   <body>
     <header>
-      <h1 class="library-name">Librería Suki</h1>
-
-      <!-- Categorías alineadas a la derecha -->
-      <div class="filter-categories">
-        <ul>
-          <li><a href="#">Categoría 1</a></li>
-          <li><a href="#">Categoría 2</a></li>
-          <li><a href="#">Categoría 3</a></li>
-          <li><a href="#">Categoría 4</a></li>
-        </ul>
+      <div class="logo">
+        <img src="IMG/libros.png" alt="Logo de Librería Suki" />
+        <h2>LIBRERIA SUKI</h2>
       </div>
+
+      <nav>
+        <ul class="menu">
+          <li><a href="#narrativa">Narrativa</a></li>
+          <li class="dropdown">
+            <a href="#dramatico" class="dropbtn">Dramático</a>
+          </li>
+          <li><a href="#lirica">Lirica</a></li>
+          <li><a href="#didactico">Didáctico</a></li>
+        </ul>
+      </nav>
     </header>
 
-    <div id="filters">
-      <h2>Filtros de búsqueda</h2>
-      <!-- Aquí irían los filtros de búsqueda (puedes agregar un formulario o dropdown) -->
-      <select>
-        <option>Filtro 1</option>
-        <option>Filtro 2</option>
-        <option>Filtro 3</option>
-      </select>
+    <!-- Buscador fuera del header, en la parte izquierda de la página -->
+    <div class="search-container">
+      <form action="" method="get">
+        <input type="text" name="search" placeholder="Buscar..." />
+        <button type="submit">En todo el catálogo</button>
+      </form>
     </div>
 
-    <div id="product-list">
-      <!-- Las tarjetas de productos se generarán aquí mediante JS -->
-    </div>
+    <main>
+      <div id="product-list">
+        <!-- Las tarjetas de productos se generarán aquí mediante JS -->
+      </div>
+    </main>
   </body>
 </html>
