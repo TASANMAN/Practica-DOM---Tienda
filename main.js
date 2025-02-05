@@ -1,69 +1,72 @@
-// script.js
-
 const products = [
   {
     name: 'El Alquimista',
     price: 15.99,
     stars: 5,
     reviews: 1200,
-    seller: 'Amazon',
-    image: 'https://images-na.ssl-images-amazon.com/images/I/71l6yUzf7wL.jpg'
+    seller: 'Casa del libro',
+    image: 'https://imagessl1.casadellibro.com/a/l/s5/51/9788408130451.webp'
   },
   {
     name: 'Cien Años de Soledad',
     price: 20.5,
     stars: 4,
     reviews: 950,
-    seller: 'El Corte Inglés',
-    image: 'https://m.media-amazon.com/images/I/51gybPqghcL.jpg'
+    seller: 'Casa del libro',
+    image: 'https://imagessl1.casadellibro.com/a/l/s5/31/9788466373531.webp'
   },
   {
     name: 'La Casa de los Espíritus',
     price: 18.99,
     stars: 5,
     reviews: 1800,
-    seller: 'Casa del Libro',
-    image: 'https://images.casadellibro.com/a/l/t7/13/9788408151313.jpg'
+    seller: 'Fnac',
+    image:
+      'https://static.fnac-static.com/multimedia/Images/ES/NR/ce/45/78/7882190/1540-1.jpg'
   },
   {
     name: '1984',
     price: 12.99,
     stars: 5,
     reviews: 1500,
-    seller: 'Fnac',
-    image: 'https://m.media-amazon.com/images/I/41-IcYz9hxL.jpg'
+    seller: 'Awesome Books',
+    image:
+      'https://d32vymxhv9fq6b.cloudfront.net/images/books/large/97801/9780141036144.jpg'
   },
   {
     name: 'Harry Potter y la Piedra Filosofal',
     price: 9.9,
     stars: 5,
     reviews: 2000,
-    seller: 'El Corte Inglés',
-    image: 'https://m.media-amazon.com/images/I/91z7XN8Yo4L.jpg'
+    seller: 'Hamelyn',
+    image:
+      'https://ul2efuvs5p2hmdcb.public.blob.vercel-storage.com/9788478884452.jpg'
   },
   {
     name: 'El Gran Gatsby',
     price: 14.99,
     stars: 4,
     reviews: 800,
-    seller: 'Amazon',
-    image: 'https://images-na.ssl-images-amazon.com/images/I/91YEBqfH9qL.jpg'
+    seller: 'Mercado libre',
+    image:
+      'https://images.cdn2.buscalibre.com/fit-in/360x360/d2/4d/d24dc8e1a4e1f2cddeefca089f91d56e.jpg'
   },
   {
     name: 'Crónica de una Muerte Anunciada',
     price: 13.99,
     stars: 4,
     reviews: 1050,
-    seller: 'Casa del Libro',
-    image: 'https://images.casadellibro.com/a/l/t7/81/9788408151313.jpg'
+    seller: 'Libros ECO',
+    image:
+      'https://libros.eco/wp-content/uploads/9788481302486_cronica-de-una-muerte-anunciada_front-13.jpg'
   },
   {
     name: 'Fahrenheit 451',
     price: 11.5,
     stars: 4,
     reviews: 900,
-    seller: 'Fnac',
-    image: 'https://m.media-amazon.com/images/I/61bd7BKh-8L.jpg'
+    seller: 'Casa del libro',
+    image: 'https://imagessl8.casadellibro.com/a/l/s5/18/9788466356718.webp'
   },
   {
     name: 'Orgullo y Prejuicio',
@@ -71,31 +74,33 @@ const products = [
     stars: 5,
     reviews: 2300,
     seller: 'Amazon',
-    image: 'https://m.media-amazon.com/images/I/81YhI6j3AyL.jpg'
+    image:
+      'https://ul2efuvs5p2hmdcb.public.blob.vercel-storage.com/9788420632902.jpg'
   },
   {
     name: 'El Retrato de Dorian Gray',
     price: 12.0,
     stars: 5,
     reviews: 1250,
-    seller: 'Casa del Libro',
-    image: 'https://images.casadellibro.com/a/l/t7/81/9788491040381.jpg'
+    seller: 'Abacus',
+    image:
+      'https://www.abacus.coop/dw/image/v2/BDLM_PRD/on/demandware.static/-/Sites-AbacusMaster/default/dw3eaea331/images/large/1438233.34.jpg'
   },
   {
     name: 'La Metamorfosis',
     price: 7.99,
     stars: 4,
     reviews: 800,
-    seller: 'Fnac',
-    image: 'https://m.media-amazon.com/images/I/41yIrBxz+fL.jpg'
+    seller: 'Casa del libro',
+    image: 'https://imagessl5.casadellibro.com/a/l/s5/45/9788491118145.webp'
   },
   {
     name: 'Los Miserables',
     price: 22.0,
     stars: 5,
     reviews: 2100,
-    seller: 'El Corte Inglés',
-    image: 'https://m.media-amazon.com/images/I/71rsbEftkjL.jpg'
+    seller: 'Amazon',
+    image: 'https://m.media-amazon.com/images/I/51UgJ31Bd6L._SY466_.jpg'
   }
 ]
 
@@ -108,27 +113,46 @@ products.forEach((product) => {
   productCard.classList.add('product-card')
 
   // Crear la tarjeta de producto con imagen y datos
-  productCard.innerHTML = `
-    <img src="${product.image}" alt="${product.name}" />
-    <div class="info">
-      <h3>${product.name}</h3>
-      <p class="price">${product.price}€</p>
-      <p class="seller">Vendedor: ${product.seller}</p>
-      <p class="reviews">${product.reviews} Reseñas</p>
-    </div>
-  `
+  const imgElement = document.createElement('img')
+  imgElement.src = product.image
+  imgElement.alt = product.name
+
+  const infoDiv = document.createElement('div')
+  infoDiv.classList.add('info')
+
+  const h3Element = document.createElement('h3')
+  h3Element.textContent = product.name
+
+  const priceElement = document.createElement('p')
+  priceElement.classList.add('price')
+  priceElement.textContent = `${product.price}€`
+
+  const sellerElement = document.createElement('p')
+  sellerElement.classList.add('seller')
+  sellerElement.textContent = `Vendedor: ${product.seller}`
+
+  const reviewsElement = document.createElement('p')
+  reviewsElement.classList.add('reviews')
+  reviewsElement.textContent = `${product.reviews} Reseñas`
+
+  // Agregar los elementos dentro de la tarjeta
+  infoDiv.appendChild(h3Element)
+  infoDiv.appendChild(priceElement)
+  infoDiv.appendChild(sellerElement)
+  infoDiv.appendChild(reviewsElement)
+
+  productCard.appendChild(imgElement)
+  productCard.appendChild(infoDiv)
 
   // Agregar la tarjeta al contenedor de productos
   productList.appendChild(productCard)
 })
+
 // Detectar el evento de scroll
 window.addEventListener('scroll', function () {
-  // Comprobar si hemos hecho scroll más de 100px
   if (window.scrollY > 100) {
-    // Si el scroll es mayor a 100px, añadimos la clase 'scroll-changed'
     document.body.classList.add('scroll-changed')
   } else {
-    // Si el scroll es menor a 100px, eliminamos la clase 'scroll-changed'
     document.body.classList.remove('scroll-changed')
   }
 })

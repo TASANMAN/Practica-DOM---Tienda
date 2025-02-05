@@ -1,41 +1,88 @@
 /* Estilo básico de la página */
 body {
   font-family: 'Georgia', serif;
-  background-color: #f7f2f0; /* Fondo suave */
+  background-color: #f7f2f0;
   margin: 0;
   padding: 0;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  flex-direction: column;
   color: #4a4a4a;
-  background-image: url('https://www.transparenttextures.com/patterns/flower-dots.png'); /* Fondo floral sutil */
+  background-image: url('https://www.transparenttextures.com/patterns/flower-dots.png');
   background-repeat: repeat;
   background-size: 200px;
 }
 
-/* Nombre de la librería */
-.library-name {
-  font-family: 'Dancing Script', cursive; /* Tipografía cursiva y elegante */
-  font-size: 3em;
-  color: #6c4f30; /* Color cálido y natural */
-  text-align: center;
-  margin-top: 20px;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil detrás del texto */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.7
-  ); /* Fondo blanco semitransparente */
-  padding: 10px 20px;
-  border-radius: 10px;
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1); /* Sombra externa para dar profundidad */
-  margin-bottom: 30px; /* Separación con el resto del contenido */
+/* Contenedor principal */
+.page-container {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  max-width: 1200px;
+  position: relative;
 }
 
-/* Contenedor principal de productos */
+/* Contenedor de Filtros alineado a la izquierda */
+.filters-container {
+  width: 220px;
+  position: absolute;
+  left: 0;
+  top: 100px;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Título de los filtros */
+.filters-container h2 {
+  font-size: 1.2em;
+  color: #6c4f30;
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+/* Estilos del select de filtros */
+.filters-container select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  font-size: 1em;
+}
+
+/* Contenedor del encabezado */
+.header-container {
+  display: flex;
+  justify-content: flex-end; /* Categorías a la derecha */
+  align-items: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+/* Contenedor de las categorías alineadas a la derecha */
+.categories {
+  display: flex;
+  justify-content: flex-end;
+  gap: 15px;
+  width: 100%;
+}
+
+/* Estilos de los enlaces de categoría */
+.categories a {
+  font-size: 1em;
+  color: #6c4f30;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.categories a:hover {
+  color: #2d87f0;
+}
+
+/* Contenedor de productos */
 #product-list {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -43,8 +90,7 @@ body {
   padding: 20px;
   width: 90%;
   max-width: 1200px;
-  box-sizing: border-box;
-  margin-top: 20px;
+  margin: 0 auto;
 }
 
 /* Estilo para cada tarjeta de producto */
@@ -53,13 +99,11 @@ body {
   border-radius: 15px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: hidden;
-  transition: transform 0.3s ease, box-shadow 0.3s ease,
-    background-color 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   height: 350px;
-  border: 1px solid #e0d8d3; /* Borde suave */
+  border: 1px solid #e0d8d3;
 }
 
-/* Estilo cuando pasa el ratón por encima de las tarjetas */
 .product-card:hover {
   transform: scale(1.05);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
@@ -69,82 +113,58 @@ body {
 .product-card img {
   width: 100%;
   height: 200px;
-  object-fit: cover; /* Asegura que la imagen no se deforme */
-  border-top-left-radius: 15px;
-  border-top-right-radius: 15px;
+  object-fit: contain;
+  background-color: #fff;
 }
 
 /* Información del producto */
 .product-card .info {
-  padding: 20px;
+  padding: 8px;
   background-color: #fafafa;
   color: #333;
   border-bottom-left-radius: 15px;
   border-bottom-right-radius: 15px;
+  text-align: center;
 }
 
 /* Nombre del producto */
 .product-card .info h3 {
-  font-size: 1.3em;
-  color: #6c4f30; /* Color cálido */
+  font-size: 0.9em;
+  color: #6c4f30;
   margin-bottom: 10px;
   font-family: 'Georgia', serif;
-  text-align: center;
-  transition: color 0.3s ease; /* Cambio de color suave */
 }
 
 /* Precio del producto */
 .product-card .info .price {
   color: #2d87f0;
   font-weight: bold;
-  margin-bottom: 10px;
-  text-align: center;
-  font-size: 1.1em;
+  font-size: 0.8em;
 }
 
-/* Vendedor */
-.product-card .info .seller {
-  font-size: 0.9em;
-  color: #888;
-  text-align: center;
-  margin-bottom: 5px;
-}
+/* RESPONSIVIDAD */
+@media (max-width: 768px) {
+  /* Estructura en pantallas pequeñas */
+  .page-container {
+    flex-direction: column;
+    align-items: center;
+  }
 
-/* Reseñas */
-.product-card .info .reviews {
-  font-size: 0.9em;
-  color: #555;
-  text-align: center;
-  margin-bottom: 15px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  /* Filtros en móviles */
+  .filters-container {
+    position: static;
+    width: 100%;
+    margin-bottom: 15px;
+    text-align: center;
+  }
 
-/* Flor de la palabra "reseña" */
-.product-card .info .reviews:before {
-  content: '🌼'; /* Flor amarilla para reseña */
-  font-size: 1.5em;
-  margin-right: 10px;
-  transform: translateY(-1px); /* Ajusta ligeramente la posición de la flor */
-}
+  /* Categorías centradas en móviles */
+  .header-container {
+    justify-content: center;
+  }
 
-/* Cuando se hace scroll: cambio de color del nombre y productos */
-.scroll-changed .library-name {
-  color: #3b2a0e; /* Color más intenso */
-}
-
-.scroll-changed .product-card {
-  background-color: #f0e5d8; /* Fondo más cálido */
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15); /* Sombra más intensa */
-  border: 1px solid #d8b493; /* Borde más oscuro */
-}
-
-/* Cambiar color de los títulos y el texto dentro del artículo */
-.scroll-changed .product-card .info h3 {
-  color: #3b2a0e; /* Color más intenso */
-}
-
-.scroll-changed .product-card .info {
-  background-color: #f7f2f0; /* Fondo más claro dentro del artículo */
+  .categories {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
 }

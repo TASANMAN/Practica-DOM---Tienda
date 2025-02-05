@@ -1,19 +1,53 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="MARA" />
+    <meta name="theme-color" content="#GREY" />
+    <meta name="description" content="Web para amantes de la lectura" />
+    <meta name="robots" content="index,follow" />
+    <meta name="google" content="notranslater" />
     <title>Tienda de Libros</title>
+    <link
+      rel="shortcut icon"
+      href="IMG/libros-de-texto.png"
+      type="image/x-icon"
+    />
     <link rel="stylesheet" href="style.css" />
     <script src="main.js" defer></script>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
       <h1 class="library-name">Librería Suki</h1>
+
+      <!-- Categorías alineadas a la derecha -->
+      <div class="filter-categories">
+        <ul>
+          <li><a href="#">Categoría 1</a></li>
+          <li><a href="#">Categoría 2</a></li>
+          <li><a href="#">Categoría 3</a></li>
+          <li><a href="#">Categoría 4</a></li>
+        </ul>
+      </div>
     </header>
-  <body>
-    <div id="product-list"></div> <!-- Aquí se generarán las tarjetas de productos -->
+
+    <div id="filters">
+      <h2>Filtros de búsqueda</h2>
+      <!-- Aquí irían los filtros de búsqueda (puedes agregar un formulario o dropdown) -->
+      <select>
+        <option>Filtro 1</option>
+        <option>Filtro 2</option>
+        <option>Filtro 3</option>
+      </select>
+    </div>
+
+    <div id="product-list">
+      <!-- Las tarjetas de productos se generarán aquí mediante JS -->
+    </div>
   </body>
 </html>
